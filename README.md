@@ -2,6 +2,10 @@
 
 Configuración de [OpenProject](https://www.openproject.org) en contenedores Docker.
 
+## Notas
+
+Usuario predeterminado: `admin`:`admin`
+
 ## Referencias
 
 - [OpenProject installation with Docker Compose](https://www.openproject.org/docs/installation-and-operations/installation/docker-compose/)
