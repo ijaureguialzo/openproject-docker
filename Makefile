@@ -29,21 +29,23 @@ _header:
 	@echo OpenProject
 	@echo -----------
 
+DOCKER_COMPOSE_FILES=-f docker-compose.yml -f docker-compose.traefik.yml
+
 _start-command:
-	@docker-compose up -d --remove-orphans
+	@docker compose $(DOCKER_COMPOSE_FILES) up -d --remove-orphans
 
 start: _start-command _urls
 
 stop:
-	@docker-compose down
+	@docker compose $(DOCKER_COMPOSE_FILES) down
 
 restart: stop start
 
 workspace:
-	@docker-compose exec web /bin/bash
+	@docker compose $(DOCKER_COMPOSE_FILES) exec web /bin/bash
 
 stats:
 	@docker stats
 
 clean:
-	@docker-compose down -v --remove-orphans
+	@docker compose $(DOCKER_COMPOSE_FILES) down -v --remove-orphans
